@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
+import { faCircle, faCheckCircle, faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faCircle)
+library.add(faCircle, faCheckCircle, faTrashAlt)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

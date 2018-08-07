@@ -4,7 +4,7 @@
       <div class="title">Todos</div>
       <add-bar @addTodo="addTodo"></add-bar>
       <div class="todo-container">
-        <todo v-for="(item, index) in todoList" :key="index" :todo="item"></todo>
+        <todo v-for="(item, index) in todoList" :key="index" :todo="item" @changeStatus="changeStatus" @delTodo="delTodo"></todo>
       </div>
     </div>
     <!-- <router-view/> -->
@@ -27,7 +27,16 @@ export default {
   },
   methods: {
     addTodo(val) {
-      this.todoList.push({ name: val, status: 0 });
+      this.todoList.push({ name: val, status: false });
+    },
+    changeStatus(todo) {
+      todo.status = !todo.status;
+    },
+    delTodo(todo) {
+      let index = this.todoList.indexOf(todo);
+      if (index != -1) {
+        this.todoList.splice(index, 1);
+      }
     }
   }
 }
